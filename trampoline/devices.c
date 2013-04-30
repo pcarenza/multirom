@@ -59,16 +59,16 @@ static struct selabel_handle *sehandle;
 
 static const char *uevent_paths[] =
 {
-    "/sys/devices/tegradc.0/graphics/fb0",
+    "/sys/devices/virtual/graphics/fb0",
 
     "/sys/block/mmcblk0",
-    "/sys/devices/platform/sdhci-tegra.3/mmc_host",
-    "/sys/devices/platform/sdhci-tegra.3/mmc_host/mmc0",
-    "/sys/devices/platform/sdhci-tegra.3/mmc_host/mmc0/mmc0:0001",
-    "/sys/devices/platform/sdhci-tegra.3/mmc_host/mmc0/mmc0:0001/block/mmcblk0",
-    "/sys/devices/platform/sdhci-tegra.3/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p9",
-    "/sys/devices/platform/sdhci-tegra.3/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p10",
-    "/sys/devices/platform/sdhci-tegra.3/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p2",
+    "/sys/devices/platform/msm_sdcc.1/mmc_host",
+    "/sys/devices/platform/sdhci-sdcc.1/mmc_host/mmc0",
+    "/sys/devices/platform/sdhci-sdcc.1/mmc_host/mmc0/mmc0:0001",
+    "/sys/devices/platform/sdhci-sdcc.1/mmc_host/mmc0/mmc0:0001/block/mmcblk0",
+    "/sys/devices/platform/sdhci-sdcc.1/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p9",
+    "/sys/devices/platform/sdhci-sdcc.1/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p10",
+    "/sys/devices/platform/sdhci-sdcc.1/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p2",
     "/sys/bus/mmc",
     "/sys/bus/mmc/drivers/mmcblk",
     "/sys/bus/mmc/drivers/mmc_test",
@@ -79,21 +79,21 @@ static const char *uevent_paths[] =
     "/sys/devices/platform/gpio-keys.0/input/input2",
     "/sys/devices/platform/gpio-keys.0/input/input2/event2",
     "/sys/devices/virtual/misc/uinput",
-    "/sys/devices/virtual/input/input0",
-    "/sys/devices/virtual/input/input0/event0",
-    "/sys/devices/virtual/input/input1",
-    "/sys/devices/virtual/input/input1/event1",
+    "/sys/devices/platform/msm_ssbi.0/pm8921-core/pm8xxx-keypad/input/input0",
+    "/sys/devices/platform/msm_ssbi.0/pm8921-core/pm8xxx-keypad/input/input0/event0",
+    "/sys/devices/i2c-3/3-0048/input/input1",
+    "/sys/devices/i2c-3/3-0048/input/input1/event1",
 
     // for adb
     "/sys/devices/virtual/tty/ptmx",
-    "/sys/devices/platform/sdhci-tegra.3/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p3", // /system
-    "/sys/devices/platform/sdhci-tegra.3/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p4", // /cache
+    "/sys/devices/platform/msm_sdcc.1/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p3", // /system
+    "/sys/devices/platform/msm_sdcc.1/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p4", // /cache
     "/sys/devices/virtual/misc/android_adb",
     "/sys/devices/virtual/android_usb/android0/f_adb",
     "/sys/bus/usb",
 
     // USB drive is in here
-    "/sys/devices/platform/tegra-ehci.0*",
+    "/sys/devices/platform/sdhci-sdcc.1*",
 
     NULL
 };

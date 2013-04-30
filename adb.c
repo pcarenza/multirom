@@ -113,12 +113,12 @@ void adb_init_usb(void)
                 strncpy(serial, start, end-serial);
         }
     }
-
+// fix the vendor and product later on - PDC
     write_file("/sys/class/android_usb/android0/idVendor", "18d1");
     write_file("/sys/class/android_usb/android0/idProduct", "4e42");
     write_file("/sys/class/android_usb/android0/functions", "adb");
     write_file("/sys/class/android_usb/android0/iManufacturer", "unknown");
-    write_file("/sys/class/android_usb/android0/iProduct", "Nexus 7");
+    write_file("/sys/class/android_usb/android0/iProduct", "Droid Razr HD");
     write_file("/sys/class/android_usb/android0/iSerial", serial);
 
     write_file("/sys/class/android_usb/android0/enable", "1");
