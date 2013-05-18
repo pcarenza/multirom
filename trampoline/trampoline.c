@@ -14,7 +14,7 @@
 
 #define EXEC_MASK (S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH)
 #define REALDATA "/realdata"
-#define BOOT_DEV "/dev/block/mmcblk0p2"
+#define BOOT_DEV "/dev/block/mmcblk0p31"
 #define MULTIROM_BIN "multirom"
 #define BUSYBOX_BIN "busybox"
 #define KEEP_REALDATA "/dev/.keep_realdata"
@@ -230,9 +230,11 @@ int main(int argc, char *argv[])
     {
         char data_dev[128];
         mkdir(REALDATA, 0755);
-        if (find_data_dev(data_dev) == 0 &&
-            mount(data_dev, REALDATA, "ext4", MS_RELATIME | MS_NOATIME,
-            "user_xattr,acl,barrier=1,data=ordered,discard,nomblk_io_submit") >= 0)
+//        if (find_data_dev(data_dev) == 0 &&
+//            mount(data_dev, REALDATA, "ext4", MS_RELATIME | MS_NOATIME,
+//            "user_xattr,acl,barrier=1,data=ordered,discard,nomblk_io_submit") >= 0)
+	if  (mount(BOOT_DEV, REALDATA, "ext4", MS_RELATIME | MS_NOATIME,
+		"barrier=1,data=ordered,discard,nomblk_io_submit") >=0)
         {
             run_multirom();
         }

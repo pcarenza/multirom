@@ -26,13 +26,13 @@
 #define NTFS_BIN "ntfs-3g"
 #define ADBD_BIN "adbd"
 #define INTERNAL_ROM_NAME "Internal"
-#define BOOT_BLK "/dev/block/mmcblk0p2"
+#define BOOT_BLK "/dev/block/mmcblk0pi31"
 #define MAX_ROM_NAME_LEN 26
 #define LAYOUT_VERSION "/data/.layout_version"
 #define SECOND_BOOT_KMESG "MultiromSaysNextBootShouldBeSecondMagic108"
 
 #define BATTERY_CAP "/sys/class/power_supply/battery/capacity"
-#define BRIGHTNESS_FILE "/sys/devices/platform/pwm-backlight/backlight/pwm-backlight/brightness"
+#define BRIGHTNESS_FILE "/sys/devices/virtual/graphics/fb0/lcd-backlight"
 
 #define T_FOLDER 4
 
@@ -101,6 +101,7 @@ int multirom(void)
     {
         // just to cache the result so that it does not take
         // any time when the UI is up
+
         multirom_has_kexec();
 
         switch(multirom_ui(&s, &to_boot))
@@ -158,6 +159,9 @@ int multirom(void)
 
     sync();
 
+	fb_clear();
+	fb_close();
+
     return exit;
 }
 
@@ -171,7 +175,6 @@ int multirom_init_fb(void)
         return -1;
     }
 
-    fb_fill(BLACK);
     return 0;
 }
 

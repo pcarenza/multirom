@@ -18,8 +18,8 @@
 #include "pong.h"
 #include "progressdots.h"
 
-#define HEADER_HEIGHT 75
-#define TAB_BTN_WIDTH 165
+#define HEADER_HEIGHT 65
+#define TAB_BTN_WIDTH 100
 
 static fb_text *tab_texts[TAB_COUNT] = { 0 };
 static fb_rect *selected_tab_rect = NULL;
@@ -383,9 +383,9 @@ int multirom_ui_touch_handler(touch_event *ev, void *data)
 void multirom_ui_auto_boot(void)
 {
     int seconds = mrom_status->auto_boot_seconds*1000;
-    active_msgbox = fb_create_msgbox(500, 300, CLR_PRIMARY);
+    active_msgbox = fb_create_msgbox(350, 165, CLR_PRIMARY);
 
-    fb_msgbox_add_text(-1, 40, SIZE_BIG, "Auto-boot");
+    fb_msgbox_add_text(-1, 20, SIZE_BIG, "Auto-boot");
     fb_msgbox_add_text(-1, active_msgbox->h-100, SIZE_NORMAL, "ROM: %s", mrom_status->auto_boot_rom->name);
     fb_msgbox_add_text(-1, active_msgbox->h-60, SIZE_NORMAL, "Touch anywhere to cancel");
 
@@ -685,7 +685,7 @@ void multirom_ui_tab_rom_set_empty(void *data, int empty)
     }
 }
 
-#define MISCBTN_W 530
+#define MISCBTN_W 265
 #define MISCBTN_H 100
 
 #define CLRBTN_W 50

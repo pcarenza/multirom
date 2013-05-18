@@ -1,5 +1,7 @@
 #include <stdlib.h>
 
+#include "log.h"
+
 #include "button.h"
 #include "input.h"
 #include "util.h"

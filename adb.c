@@ -114,8 +114,8 @@ void adb_init_usb(void)
         }
     }
 // fix the vendor and product later on - PDC
-    write_file("/sys/class/android_usb/android0/idVendor", "18d1");
-    write_file("/sys/class/android_usb/android0/idProduct", "4e42");
+    write_file("/sys/class/android_usb/android0/idVendor", "22b8");
+    write_file("/sys/class/android_usb/android0/idProduct", "710f");
     write_file("/sys/class/android_usb/android0/functions", "adb");
     write_file("/sys/class/android_usb/android0/iManufacturer", "unknown");
     write_file("/sys/class/android_usb/android0/iProduct", "Droid Razr HD");
